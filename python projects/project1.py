@@ -1,6 +1,6 @@
 import random
 
-
+# we allow the user to roll a dice from 1 to 6
 def roll():
     min_value = 1
     max_value = 6
@@ -8,7 +8,7 @@ def roll():
 
     return roll
 
-
+#number of players to play the game
 while True:
     players = input("Enter the number of players (2 - 4): ")
     if players.isdigit():
@@ -19,16 +19,22 @@ while True:
             print("Must be between 2 - 4 players.")
     else:
         print("Invalid, try again.")
-
+        
+# i set the total score for a player to get
 max_score = 50
+
+# this will let each get 0 score when ther game begin
 player_scores = [0 for _ in range(players)]
+
+
 
 while max(player_scores) < max_score:
     for player_idx in range(players):
         print("\nPlayer number", player_idx + 1, "turn has just started!")
         print("Your total score is:", player_scores[player_idx], "\n")
         current_score = 0
-
+        
+#Asking the player to start the game by rolling the dice
         while True:
             should_roll = input("Would you like to roll (y)? ")
             if should_roll.lower() != "y":
